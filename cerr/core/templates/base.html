@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>
+    {% block title %}CERR - Companhia Energética de Roraima{% endblock %}
+  </title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+  <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+  <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css" />
+  {% block style %} {% endblock style %} {% block script %} {% endblock script%}
+</head>
+
+<body class="home">
+  <div class="container">
+    <header class="bg-white" id="topo">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'core:home' %}">
+          <img src="{% static 'img/logos/logo.svg' %}" style="height: 36px" alt="Logo da cerr" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'core:home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Empresa</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Intranet</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Transparência</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'noticias:noticia_list' %}">Notícias</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Downloads
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% static '/arquivos/ficha_cadastro.pdf' %}" target="_blank">Ficha de
+                  cadastro</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="//sei.rr.gov.br/sei/" target="_blank">SEI</a>
+            </li>
+            <li class="nav-item">
+              {% if request.user.is_authenticated %}
+              <a class="nav-link" href="{% url 'logout' %}">
+                <i class="fa-solid fa-right-from-bracket"></i>
+              </a>
+              {% else %}
+              <a class="nav-link" href="{% url 'login' %}">
+                <i class="fa-solid fa-right-to-bracket"></i>
+              </a>
+              {% endif %}
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    {% block content %}{% endblock %}
+    <footer class="page-footer font-small unique-color-dark mt-1 mb-2" style="background-color: #0b4f6c">
+      <div class="container text-center text-md-left">
+        <div class="row pt-3">
+          <div class="col-md-2 mx-auto">
+            <p><a href="#">Empresa</a></p>
+            <p><a href="{% url 'noticias:noticia_list' %}">Notícias</a></p>
+            <p><a href="//sei.rr.gov.br/sei/" target="_blank">SEI RR</a></p>
+          </div>
+          <div class="col-md-2 mx-auto">
+            <p><a href="#">Intranet</a></p>
+            <p>
+              <a href="//webmail.metaweb.com.br" target="_blank">Webmail</a>
+            </p>
+          </div>
+          <div class="col-md-2 mx-auto">
+            <p><a href="#">Transparência</a></p>
+            <p>
+              <a href="//servidor.rr.gov.br/" target="_blank">Contracheque</a>
+            </p>
+          </div>
+          <div class="col-md-6 mx-auto text text-white">
+            <p>
+              <i class="fas fa-map-marker-alt text-theme-color mr-2"></i> Av.
+              Pres. Castelo Branco, 1163 - Calungá
+            </p>
+            <p>
+              <i class="fas fa-phone text-theme-color mr-2"></i> 95 4009 1500
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright text-center py-3" style="background-color: #094761; color: white">
+        © 2020 Copyright:
+        <a href="http://cerr.net.br/"> cerr.net.br</a>
+      </div>
+    </footer>
+  </div>
+  <script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
+  <script src="{% static 'js/sorttable.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  {% block javascript %} {% endblock javascript %}
+</body>
+
+</html>

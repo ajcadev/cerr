@@ -1,0 +1,114 @@
+.conteudo {
+    width: 100%;
+    max-width: 768px;
+    padding: 0px;
+    margin: 0 auto;
+}
+
+.form-valida {
+    width: 100%;
+    max-width: 400px;
+    padding: 0px;
+    margin: 0 auto;
+}
+
+.tranparencia-login-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 0px;
+    margin: 0 auto;
+}
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-colaborador {
+    width: 100%;
+    max-width: 730px;
+    padding: 0px;
+    margin: 0 auto;
+}
+
+.table-caption-top {
+    caption-side: top;
+}
+
+.bg-nav-site {
+    background-color: #1496db!important;
+}
+
+.logo-cerr {
+    max-width: 25%;
+    height: auto;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    align-content: flex-start;
+}
+
+hr.hr-primary {
+   border-top-color: #55A79A !important;
+}
+
+hr.hr-lg {
+    border-top-width: 3px;
+}
+
+.w-10 {
+    width: 10% !important;
+}
+
+.fa-calendar-alt:before {
+    content: "\f073";
+}
+        
+.font-size11 {
+    font-size: 10px;
+    line-height: 14px;
+}
+.diretor-img {
+    max-width: 60%;
+}
+
+.bg-light-gray {
+    background-color: #f7f7f7;
+}
+
+section {
+    overflow: hidden;
+}
+
+footer p a {
+    text-decoration: none;
+    color: #54d6f0;
+}
+
+footer p a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.text-theme-color {
+    color:lime;
+}
+
+.section-heading {
+	text-align: center;
+	font-size: 26px;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+}
+
+.section-heading h3:after {
+	content: '';
+	display: block;
+	width: 100px;
+	height: 2px;
+	background: var(--color-tertiary);
+	margin: 0 auto;
+}

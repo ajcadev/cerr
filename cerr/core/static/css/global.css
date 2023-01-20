@@ -1,0 +1,93 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+:root {
+	--font-weight-bold: 600;
+	--font-weight-medium: 500;
+	--font-weight-light: 400;
+	--font-family: 'Barlow', sans-serif;
+
+	--color-text: hsl(222deg, 22%, 5%);
+	--color-background: hsl(0deg, 0%, 100%);
+
+	--color-gray-100: hsl(225deg, 25%, 95%);
+	--color-gray-200: hsl(225deg, 16%, 90%);
+	--color-gray-300: hsl(225deg, 8%, 80%);
+	--color-gray-400: hsl(225deg, 8%, 70%);
+	--color-gray-500: hsl(225deg, 7%, 60%);
+	--color-gray-600: hsl(225deg, 15%, 50%);
+	--color-gray-700: hsl(225deg, 12%, 40%);
+	--color-gray-900: hsl(225deg, 25%, 20%);
+	--color-gray-1000: hsl(225deg, 15%, 15%);
+
+	--color-primary: hsl(245deg, 100%, 60%);
+	--color-secondary: hsl(333deg, 100%, 45%);
+	--color-tertiary: hsl(255deg, 85%, 30%);
+
+	--color-info: hsl(245deg, 100%, 60%);
+	--color-success: hsl(160deg, 100%, 40%);
+	--color-alert: hsl(37deg, 100%, 50%);
+	--color-error: hsl(340deg, 95%, 50%);
+	--color-muted: hsl(210deg, 55%, 92%);
+
+	--color-info-background: hsl(245deg, 100%, 60%, 0.25);
+	--color-success-background: hsla(160deg, 100%, 40%, 0.1);
+	--color-alert-background: hsla(52deg, 100%, 50%, 0.25);
+	--color-error-background: hsla(340deg, 95%, 43%, 0.1);
+	--color-muted-background: hsla(210deg, 55%, 92%, 0.85);
+}
+
+html, body, #root, #__next {
+  height: 100%;
+}
+
+body {
+	font-family: var(--font-family);
+	font-weight: var(--font-weight-light);
+	background: var(--color-background) !important;
+	color: var(--color-text);
+
+	line-height: 1.5;                    
+  -webkit-font-smoothing: antialiased;
+}
+
+input, button, textarea, select {
+	font: inherit;
+	font-size: 0.8rem;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+#root, #__next {
+  isolation: isolate;
+}
+
+h1, h2, h3, h4, h5, h6, strong {
+	font-weight: var(--font-weight-bold);
+}
+
+button {
+	cursor: pointer;
+}
+
+[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}

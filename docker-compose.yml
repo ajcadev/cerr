@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  postgres:
+    container_name: cerr
+    image: postgres:13
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - LC_ALL=C.UTF-8
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=cerr
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
+    driver: local

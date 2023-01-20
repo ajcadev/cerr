@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Colaboradores{% endblock %}
+
+{% block content %}
+
+{% if request.user.is_rh %}
+{% for message in messages %}
+<div class="alert {{ message.tags }} alert-dismissible mt-4" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  {{ message }}
+</div>
+{% endfor %}
+<a class="btn btn-outline-primary mt-3" href="{% url 'rh:colaborador_add' %}" role="button">Novo</a>
+{% if colaboradores %}
+<table class="table table-striped sortable">
+  <caption class="table-caption-top font-weight-bold">Colaboradores Cadastrados</caption>
+  <thead>
+    <tr class="table-info">
+      <th>CPF</th>
+      <th>Nome</th>
+      <th>Data</th>
+      <th>E-mail</th>
+      <th>Matrícula</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for colaborador in colaboradores %}
+    <tr>
+      <td>{{colaborador.cpf}}</td>
+      <td>{{colaborador.nome}}</td>
+      <td>{{colaborador.data|date:'SHORT_DATE_FORMAT'}}</td>
+      <td>{{colaborador.email}}</td>
+      <td>{{colaborador.matricula}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% include '../paginator.html' %}
+{% else %}
+<p class="alert alert-info mt-3">Não existem dados para mostrar</p>
+{% endif %}
+{% else %}
+<p class="alert alert-info mt-3">Desculpe, àrea restrita!</p>
+{% endif %}
+{% endblock %}

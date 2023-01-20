@@ -1,0 +1,31 @@
+{% extends 'baseB.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="bg-white pt-3">
+    <div class="text-center section-heading">
+        <h4>Seja bem-vindo(a)</h4>
+    </div>
+    <form class="form-signin bg-light" method="post" >
+        <div class="text-center">
+            <img class="mb-4" src="{% static 'img/users/user.svg' %}" alt="logo" width="72" height="72">
+        </div>
+        
+        {% csrf_token %}
+        {% include '../bs4_form.html' with form=form %}
+        <div class="mt-4">
+            <button class="btn btn-outline-primary btn-block" type="submit"><span>Login</span></button>
+        </div>
+
+        <div class="mt-4">
+            <p class="no-margin float-right"><a href="{% url 'password_reset' %}">Esqueceu a senha?</a></p>
+            
+        </div>
+    </form>
+</div>
+
+{% endblock %}ml>

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Cadastro de colaborador{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block style %}
+<style>
+  #id_email {
+    text-transform: lowercase;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="card mt-2">
+  <div class="card-body">
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% crispy form %}
+  </div>
+</div>
+{% endblock %}

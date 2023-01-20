@@ -1,0 +1,13 @@
+Prezado(a) {{ nome }},
+
+Para sua comodidade estamos reestruturando nosso site para melhor lhe servir.
+Para isso, redefinimos seu usuário com uma senha provisória.
+
+Usuário: {{ cpf }}
+Senha: {{ password }}
+
+Por favor, em seu primeiro acesso altere essa senha.
+
+Att,
+
+Assessoria de Tecnologia da Informação.
