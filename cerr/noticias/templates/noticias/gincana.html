@@ -2,109 +2,112 @@
 
 {% block style %}
 <style>
-	.gallery {
-		width: 100%;
-		max-width: 1200px;
-		overflow: hidden;
-		margin: 0 auto;
-		/* padding: 60px 0; */
-	}
-	.gallery_title {
-		font-size: 2rem;
-		margin-bottom: 1em;
-		color: #939393;
-	}
-	.gallery_container {
-		display: flex;
-		gap: 20px;
-		flex-wrap: wrap;
-	}
-	.gallery_picture {
-		min-width: 200px;
-		flex: 250px;
-	}
-	.gallery_img {
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
-	video {
-		width: 100%;
-	}
+  .gallery {
+    width: 100%;
+    max-width: 1200px;
+    overflow: hidden;
+    margin: 0 auto;
+    /* padding: 60px 0; */
+  }
 
+  .gallery_title {
+    font-size: 2rem;
+    margin-bottom: 1em;
+    color: #939393;
+  }
 
+  .gallery_container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .gallery_picture {
+    min-width: 200px;
+    flex: 250px;
+  }
+
+  .gallery_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  video {
+    width: 100%;
+  }
 </style>
 {% endblock style %}
 
 <div class="noticia-text">
-	<p>A CERR (Companhia Energética de Roraima) brilhou durante a sua participação na Gincana do Servidor, evento
-		realizado pelo Governo de Roraima na última quinta-feira (28). A equipe foi a quarta colocada no placar geral da
-		competição, ficando atrás de SESAU (Secretaria de Estado da Saúde), SECULT (Secretaria de Estado da Cultura) e
-		SETRABES (Secretaria do Trabalho e Bem-Estar Social).</p>
-	<p>“Estávamos competindo com secretarias grandes em número de servidores, mas a nossa equipe estava bastante unida e
-		esse resultado mostrou essa união. Mesmo diante dessa desvantagem numérica nós conseguimos um importante resultado e
-		isso também reafirmou o quanto somos um órgão unido. Todos os nossos colaboradores estão de parabéns”, afirmou a
-		diretora presidente da CERR, Cecília Lorenzon.</p>
-	<p>Todas as 13 provas lançadas na competição contaram com equipes da CERR, um trabalho que teve a atenção dos
-		coordenadores de equipe Marllon Porttilho e Rosimeire Gondim, ambos do DAG (Departamento de Gestão de Pessoas).</p>
-	<p>“Foi uma experiência única e satisfatória. A equipe vermelha foi maravilhosa nas provas. Agradeço pela a confiança
-		de todos que tiveram em mim para lidar esse grupo maravilhoso”, destacou Porttilho.</p>
-	<p>“Lógico que queríamos ganhar, mas ficamos entre as cinco melhores equipes da gincana e isso foi gratificante. Ver o
-		empenho, a dedicação e a doação dos colaboradores nas provas me deixou muito feliz. A presidente também esteve
-		envolvida durante todo o processo e isso é muito bom”, comentou Rosimeire.</p>
-	<p>Além da prova das torcidas e da apresentação, a companhia também se destacou no cabo de guerra, considerada uma das
-		modalidades mais disputadas da gincana. Os dez participantes inscritos mostraram garra e o resultado surpreendeu até
-		mesmo o Corpo de Bombeiros, que nesta edição atuaram como organizadores do evento.</p>
-	<p>“Essa gincana aproximou muitos os colaboradores, fazendo surgir novas amizades. Um evento assim ajuda o coração e
-		alma da gente, principalmente nesse período de pandemia que a gente está vivendo. Agradeço a todos os coordenadores
-		que lutaram e buscaram para fazer isso acontecer”, ressaltou Adams Pantoja, colaborador do DAL (Departamento de
-		Logística).</p>
-	<p>“A determinação de todos levou a companhia a incrível marca de quarta colocada em sua primeira participação,
-		mostrando a força da gestão atual e de seus parceiros e apoiadores, fortalecendo o clima de competição sem deixar
-		pra lá a descontração e a comemoração do dia de cada um de nós servidores”, salientou Dhiego Cabral, colaborador da
-		PPR (Procuradoria Jurídica).</p>
-	<p>Gerente do DTG (Departamento Geral), Denilson Meirelles também festejou o sucesso da equipe vermelha na gincana.
-		Para ele, a competição resgatou o espírito de união entre os funcionários da companhia.</p>
-	<p>“Ontem, vi amigos com alegria no coração e animados por aqueles momentos de lazer e confraternização muito salutar.
-		Parabéns a todos os colegas que fizeram tudo aquilo acontecer, independente de sua função. Eu e todos aqueles que
-		estiveram na gincana, certamente, estão muito agradecidos”, pontuou.</p>
+  <p>A CERR (Companhia Energética de Roraima) brilhou durante a sua participação na Gincana do Servidor, evento
+    realizado pelo Governo de Roraima na última quinta-feira (28). A equipe foi a quarta colocada no placar geral da
+    competição, ficando atrás de SESAU (Secretaria de Estado da Saúde), SECULT (Secretaria de Estado da Cultura) e
+    SETRABES (Secretaria do Trabalho e Bem-Estar Social).</p>
+  <p>“Estávamos competindo com secretarias grandes em número de servidores, mas a nossa equipe estava bastante unida e
+    esse resultado mostrou essa união. Mesmo diante dessa desvantagem numérica nós conseguimos um importante resultado e
+    isso também reafirmou o quanto somos um órgão unido. Todos os nossos colaboradores estão de parabéns”, afirmou a
+    diretora presidente da CERR, Cecília Lorenzon.</p>
+  <p>Todas as 13 provas lançadas na competição contaram com equipes da CERR, um trabalho que teve a atenção dos
+    coordenadores de equipe Marllon Porttilho e Rosimeire Gondim, ambos do DAG (Departamento de Gestão de Pessoas).</p>
+  <p>“Foi uma experiência única e satisfatória. A equipe vermelha foi maravilhosa nas provas. Agradeço pela a confiança
+    de todos que tiveram em mim para lidar esse grupo maravilhoso”, destacou Porttilho.</p>
+  <p>“Lógico que queríamos ganhar, mas ficamos entre as cinco melhores equipes da gincana e isso foi gratificante. Ver o
+    empenho, a dedicação e a doação dos colaboradores nas provas me deixou muito feliz. A presidente também esteve
+    envolvida durante todo o processo e isso é muito bom”, comentou Rosimeire.</p>
+  <p>Além da prova das torcidas e da apresentação, a companhia também se destacou no cabo de guerra, considerada uma das
+    modalidades mais disputadas da gincana. Os dez participantes inscritos mostraram garra e o resultado surpreendeu até
+    mesmo o Corpo de Bombeiros, que nesta edição atuaram como organizadores do evento.</p>
+  <p>“Essa gincana aproximou muitos os colaboradores, fazendo surgir novas amizades. Um evento assim ajuda o coração e
+    alma da gente, principalmente nesse período de pandemia que a gente está vivendo. Agradeço a todos os coordenadores
+    que lutaram e buscaram para fazer isso acontecer”, ressaltou Adams Pantoja, colaborador do DAL (Departamento de
+    Logística).</p>
+  <p>“A determinação de todos levou a companhia a incrível marca de quarta colocada em sua primeira participação,
+    mostrando a força da gestão atual e de seus parceiros e apoiadores, fortalecendo o clima de competição sem deixar
+    pra lá a descontração e a comemoração do dia de cada um de nós servidores”, salientou Dhiego Cabral, colaborador da
+    PPR (Procuradoria Jurídica).</p>
+  <p>Gerente do DTG (Departamento Geral), Denilson Meirelles também festejou o sucesso da equipe vermelha na gincana.
+    Para ele, a competição resgatou o espírito de união entre os funcionários da companhia.</p>
+  <p>“Ontem, vi amigos com alegria no coração e animados por aqueles momentos de lazer e confraternização muito salutar.
+    Parabéns a todos os colegas que fizeram tudo aquilo acontecer, independente de sua função. Eu e todos aqueles que
+    estiveram na gincana, certamente, estão muito agradecidos”, pontuou.</p>
 </div>
 <main class="gallery">
-	<h2 class="gallery_title">Galeria de Fotos</h2>
-	<section class="gallery_container">
-		<figure class="gallery_picture">
-			<img src="{% static 'img/gincana/img1.jpeg' %}" class="gallery_img">
-		</figure>
-		<figure class="gallery_picture">
-			<img src="{% static 'img/gincana/img2.jpeg' %}" class="gallery_img">
-		</figure>
-		<figure class="gallery_picture">
-			<img src="{% static 'img/gincana/img3.jpeg' %}" class="gallery_img">
-		</figure>
-		<figure class="gallery_picture">
-			<img src="{% static 'img/gincana/img4.jpeg' %}" class="gallery_img">
-		</figure>
-		<figure class="gallery_picture">
-			<img src="{% static 'img/gincana/img5.jpeg' %}" class="gallery_img">
-		</figure>
-		<figure class="gallery_picture">
-			<img src="{% static 'img/gincana/img6.jpeg' %}" class="gallery_img">
-		</figure>
-		<figure class="gallery_picture">
-			<img src="{% static 'img/gincana/img7.jpeg' %}" class="gallery_img">
-		</figure>
-		<figure class="gallery_picture">
-			<img src="{% static 'img/gincana/img8.jpeg' %}" class="gallery_img">
-		</figure>
-		<figure class="gallery_picture">
-			<img src="{% static 'img/gincana/img9.jpeg' %}" class="gallery_img">
-		</figure>
-		<figure class="gallery_picture">
-			<img src="{% static 'img/gincana/img10.jpeg' %}" class="gallery_img">
-		</figure>
-	</section>
-	<section>
-		<h2 class="gallery_title">Video</h2>
-		<video controls src="{% static 'video/gincana.mp4' %}"></video>
-	</section>
+  <h2 class="gallery_title">Galeria de Fotos</h2>
+  <section class="gallery_container">
+    <figure class="gallery_picture">
+      <img src="{% static 'img/gincana/img1.jpeg' %}" class="gallery_img">
+    </figure>
+    <figure class="gallery_picture">
+      <img src="{% static 'img/gincana/img2.jpeg' %}" class="gallery_img">
+    </figure>
+    <figure class="gallery_picture">
+      <img src="{% static 'img/gincana/img3.jpeg' %}" class="gallery_img">
+    </figure>
+    <figure class="gallery_picture">
+      <img src="{% static 'img/gincana/img4.jpeg' %}" class="gallery_img">
+    </figure>
+    <figure class="gallery_picture">
+      <img src="{% static 'img/gincana/img5.jpeg' %}" class="gallery_img">
+    </figure>
+    <figure class="gallery_picture">
+      <img src="{% static 'img/gincana/img6.jpeg' %}" class="gallery_img">
+    </figure>
+    <figure class="gallery_picture">
+      <img src="{% static 'img/gincana/img7.jpeg' %}" class="gallery_img">
+    </figure>
+    <figure class="gallery_picture">
+      <img src="{% static 'img/gincana/img8.jpeg' %}" class="gallery_img">
+    </figure>
+    <figure class="gallery_picture">
+      <img src="{% static 'img/gincana/img9.jpeg' %}" class="gallery_img">
+    </figure>
+    <figure class="gallery_picture">
+      <img src="{% static 'img/gincana/img10.jpeg' %}" class="gallery_img">
+    </figure>
+  </section>
+  <section>
+    <h2 class="gallery_title">Video</h2>
+    <video controls src="{% static 'video/gincana.mp4' %}"></video>
+  </section>
 </main>

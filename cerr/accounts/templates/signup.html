@@ -6,17 +6,17 @@
 
 {% block content %}
 
-    <div class="bg-white pt-3">
-        <div class="text-center">
-            <h4>Cadastre-se</h4>
-        </div>
-        <form class="form-signin" method="post" >
-            {% csrf_token %}
-            {% include './bs4_form.html' with form=form %}
-            <div class="mt-4">
-                <button class="btn btn-outline-primary btn-block" type="submit"><span>Cadastre-se</span></button>
-            </div>       
-        </form>
+<div class="bg-white pt-3">
+  <div class="text-center">
+    <h4>Cadastre-se</h4>
+  </div>
+  <form class="form-signin" method="post">
+    {% csrf_token %}
+    {% include './bs4_form.html' with form=form %}
+    <div class="mt-4">
+      <button class="btn btn-outline-primary btn-block" type="submit"><span>Cadastre-se</span></button>
     </div>
+  </form>
+</div>
 
 {% endblock %}ml>

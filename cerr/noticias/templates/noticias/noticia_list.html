@@ -7,31 +7,31 @@
 {% block content %}
 
 <section>
-    <div class="row">
-        <div class="col-lg-12 center-col">
-            <div class="bg-white padding-15px-all sm-padding-10px-all">
-                {% if noticias %}
-                    <table class="table table-striped">
-                        <caption class="table-caption-top font-weight-bold">Notícias da CERR</caption>
-                        <tbody>
-                            {% for noticia in noticias %}
-                                <tr>
-                                    <td><span class="data">{{noticia.created_at|date:"SHORT_DATE_FORMAT"}}</span></td>
-                                    <td>{{noticia}}</td>
-                                    <td><a class="text text-primary" href="{{ noticia.get_absolute_url }}"> Ler a notícia...</a></td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                    {% include '../paginator.html' %}
-                {% else %}
-                    <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i>
-                        No momento não existem notícias cadastradas.
-                    </div>
-                {% endif %}
-            </div>
+  <div class="row">
+    <div class="col-lg-12 center-col">
+      <div class="bg-white padding-15px-all sm-padding-10px-all">
+        {% if noticias %}
+        <table class="table table-striped">
+          <caption class="table-caption-top font-weight-bold">Notícias da CERR</caption>
+          <tbody>
+            {% for noticia in noticias %}
+            <tr>
+              <td><span class="data">{{noticia.created_at|date:"SHORT_DATE_FORMAT"}}</span></td>
+              <td>{{noticia}}</td>
+              <td><a class="text text-primary" href="{{ noticia.get_absolute_url }}"> Ler a notícia...</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% include '../paginator.html' %}
+        {% else %}
+        <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i>
+          No momento não existem notícias cadastradas.
         </div>
+        {% endif %}
+      </div>
     </div>
+  </div>
 </section>
 
 {% endblock %}>

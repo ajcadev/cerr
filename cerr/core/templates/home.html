@@ -3,101 +3,112 @@
 {% load static %}
 
 {% block style %}
-  <style>
+<style>
+  .noticia {
+    margin-bottom: 10px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-gray-200);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  h4.titulo-noticia {
+    margin-top: 0;
+  }
+
+  .titulo-noticia a {
+    font-size: 20px;
+    margin-bottom: 10px;
+    text-decoration: none;
+  }
+
+  .texto-noticia {
+    color: var(--color-gray-500);
+  }
+
+  .hr {
+    border-top: 1px solid var(--color-gray-200);
+    padding-top: 20px;
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .data-leia-noticia {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .leia-noticia {
+    font-weight: var(--font-weight-bold);
+    font-size: 0.9rem;
+  }
+
+  .leia-noticia a {
+    text-decoration: none;
+    color: var(--color-secondary);
+  }
+
+  .leia-noticia a::after {
+    content: '\f105';
+    font-family: Font Awesome\ 5 Free;
+    margin-left: 10px;
+  }
+
+  .data-noticia {
+    color: var(--color-gray-500);
+    font-size: 13px;
+    margin-top: 3px;
+    margin-bottom: 0;
+    margin-left: 8px;
+    font-weight: var(--font-weight-bold);
+  }
+
+  @media screen and (min-width: 992px) {
+    .portal-noticias {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
     .noticia {
-      margin-bottom: 10px;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      border: 1px solid var(--color-gray-200);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      flex: 0 1 calc(33% - 0.5rem);
     }
-    h4.titulo-noticia {
-      margin-top: 0;
-    }
-    .titulo-noticia a {
-      font-size: 20px;
-      margin-bottom: 10px;
-      text-decoration: none;
-    }
-    .texto-noticia {
-      color: var(--color-gray-500);
-    }
-    .hr {
-      border-top: 1px solid var(--color-gray-200);
-      padding-top: 20px;
-      margin-top: 15px;
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-    .data-leia-noticia {
-      display: flex;
-      justify-content: space-between;
-    }
-    .leia-noticia {
-      font-weight: var(--font-weight-bold);
-      font-size: 0.9rem;
-    }
-    .leia-noticia a {
-      text-decoration: none;
-      color: var(--color-secondary);
-    }
-    .leia-noticia a::after {
-      content: '\f105';
-      font-family: Font Awesome\ 5 Free;
-      margin-left: 10px;
-    }
-    .data-noticia {
-      color: var(--color-gray-500);
-      font-size: 13px;
-      margin-top: 3px;
-      margin-bottom: 0;
-      margin-left: 8px;
-      font-weight: var(--font-weight-bold);
-    }
-    @media screen and (min-width: 992px) {
-      .portal-noticias {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-      }
-      .noticia {
-        flex: 0 1 calc(33% - 0.5rem);
-      }
-    }
-  </style>
+  }
+</style>
 {% endblock style %}
 {% block content %}
-  <div class="conteiner">
-    <div class="section-heading mt-4">
-      <h3>Últimas Notícias</h3>
-    </div>
-    <main class="portal-noticias">
-      {% for noticia in noticias %}
-        <article class="noticia bg-light">
-          <section>
-            <h4 class="titulo-noticia">
-              <a href="{{ noticia.get_absolute_url }}">{{noticia}}</a>
-            </h4>
-            <div class="texto-noticia">
-              <p>{% autoescape off %}{{noticia.description|truncatewords:20}}{% endautoescape %}</p>
-            </div>
-          </section>
-          <section>
-            <div class="hr"></div>
-            <div class="data-leia-noticia">
-              <div class="data-noticia">
-                <i class="fas fa-calendar-alt"></i>
-                <span>{{noticia.created_at|date:"SHORT_DATE_FORMAT"}}</span>
-              </div>
-              <div class="leia-noticia">
-                <a href="{{ noticia.get_absolute_url }}">Leia mais</a>
-              </div>
-            </div>
-          </section>
-        </article>
-      {% endfor %}
-    </main>
+<div class="conteiner">
+  <div class="section-heading mt-4">
+    <h3>Últimas Notícias</h3>
   </div>
+  <main class="portal-noticias">
+    {% for noticia in noticias %}
+    <article class="noticia bg-light">
+      <section>
+        <h4 class="titulo-noticia">
+          <a href="{{ noticia.get_absolute_url }}">{{noticia}}</a>
+        </h4>
+        <div class="texto-noticia">
+          <p>{% autoescape off %}{{noticia.description|truncatewords:20}}{% endautoescape %}</p>
+        </div>
+      </section>
+      <section>
+        <div class="hr"></div>
+        <div class="data-leia-noticia">
+          <div class="data-noticia">
+            <i class="fas fa-calendar-alt"></i>
+            <span>{{noticia.created_at|date:"SHORT_DATE_FORMAT"}}</span>
+          </div>
+          <div class="leia-noticia">
+            <a href="{{ noticia.get_absolute_url }}">Leia mais</a>
+          </div>
+        </div>
+      </section>
+    </article>
+    {% endfor %}
+  </main>
+</div>
 {% endblock %}
