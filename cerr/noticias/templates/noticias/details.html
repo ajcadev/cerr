@@ -1,11 +1,10 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% load static %}
-
-{% block title %}{{ noticia.title }}{% endblock %}
-
+{% block title %}
+  {{ noticia.title }}
+{% endblock title %}
 {% block style %}
-<style>
+  <style>
   .noticia-content {
     padding: 0.5rem;
   }
@@ -73,30 +72,34 @@
       font-size: 17px;
     }
   }
-</style>
+  </style>
 {% endblock style %}
-
 {% block content %}
-
-<div class="noticia-container">
-  <div class="noticia-image"></div>
-  <div class="noticia-content">
-    <h1 class="noticia-title">{{noticia}}</h1>
-    <div class="noticia-meta">
-      <span class="noticia-meta-author">Assessoria de Comunicação</span>
-      <span class="noticia-meta-data">{{noticia.created_at|date:"DATE_FORMAT"}}</span>
+  <div class="noticia-container">
+    <div class="noticia-image"></div>
+    <div class="noticia-content">
+      <h1 class="noticia-title">{{ noticia }}</h1>
+      <div class="noticia-meta">
+        <span class="noticia-meta-author">Assessoria de Comunicação</span>
+        <span class="noticia-meta-data">{{ noticia.created_at|date:"DATE_FORMAT" }}</span>
+      </div>
+      {% if noticia.image %}
+        <figure>
+          <img class="img-fluid alignleft"
+               src="{{ noticia.image.url }}"
+               alt="imagem da notícia"/>
+        </figure>
+      {% endif %}
+      {% if noticia.id == 359 %}
+        {% include "./gincana.html" %}
+      {% else %}
+        <div class="noticia-text">
+          {% autoescape off %}
+            {{ noticia.description }}
+          {% endautoescape %}
+        </div>
+      {% endif %}
     </div>
-    {% if noticia.image %}
-    <figure>
-      <img class="img-fluid alignleft" src="{{ noticia.image.url }}" alt="imagem da notícia" />
-    </figure>
-    {% endif %}
-    {% if noticia.id == 359 %}
-    {% include './gincana.html' %}
-    {% else %}
-    <div class="noticia-text">{% autoescape off %}{{ noticia.description }}{% endautoescape %}</div>
-    {% endif %}
   </div>
-</div>
-
-{% endblock %}>
+{% endblock content %}
+>

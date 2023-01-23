@@ -1,24 +1,32 @@
-{% extends 'base.html' %}
-
+{% extends "base.html" %}
 {% load static %}
-
-{% block title %}Intranet{% endblock %}
-
+{% block title %}
+  Intranet
+{% endblock title %}
 {% block content %}
-
-<div class="user-container">
-  <div class="user-logged">
-    <div class="row mt-2 mb-2">
-      <div class="col-md font-weight-bold">{{ request.user.nome }}</div>
+  <div class="user-container">
+    <div class="user-logged">
+      <div class="row mt-2 mb-2">
+        <div class="col-md font-weight-bold">{{ request.user.nome }}</div>
+      </div>
+    </div>
+    <div class="user-content">
+      <p>
+        <a href="{% url 'rh:colaborador_list' %}">Cadastrar Colaborador</a>
+      </p>
+      <p>
+        <a href="#">Cadastrar Dependente</a>
+      </p>
+      <p>
+        <a href="#">Cadastrar Ressarcimento</a>
+      </p>
+      <p>
+        <a href="#">Fechar Mês</a>
+      </p>
+      <p>
+        <a href="#">Relatório</a>
+      </p>
     </div>
   </div>
-  <div class="user-content">
-    <p><a href="{% url 'rh:colaborador_list' %}">Cadastrar Colaborador</a></p>
-    <p><a href="#">Cadastrar Dependente</a></p>
-    <p><a href="#">Cadastrar Ressarcimento</a></p>
-    <p><a href="#">Fechar Mês</a></p>
-    <p><a href="#">Relatório</a></p>
-  </div>
-</div>
-
-{% endblock %}>
+{% endblock content %}
+>

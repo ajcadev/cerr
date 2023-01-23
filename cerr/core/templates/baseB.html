@@ -1,38 +1,39 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>{% block title %}CERR - Companhia Energética de Roraima{% endblock %}</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/global.css' %}">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-  <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
-  <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
-
-  {% block style %}
-  {% endblock style %}
-  {% block script %}
-  {% endblock script %}
-</head>
-
-<body class="home">
-  {% block content %}
-  {% endblock %}
-  <script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
-  <script src="{% static 'js/popper.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.min.js' %}"></script>
-  {% block javascript %}
-  {% endblock javascript %}
-</body>
-
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>
+      {% block title %}
+        CERR - Companhia Energética de Roraima
+      {% endblock title %}
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link href="{% static 'fontawesomefree/css/all.min.css' %}"
+          rel="stylesheet"
+          type="text/css"/>
+    {% block style %}
+    {% endblock style %}
+    {% block script %}
+    {% endblock script %}
+  </head>
+  <body class="home">
+    {% block content %}
+    {% endblock content %}
+    <script src="{% static 'js/jquery-3.2.1.slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    {% block javascript %}
+    {% endblock javascript %}
+  </body>
 </html>

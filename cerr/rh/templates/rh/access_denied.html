@@ -1,11 +1,10 @@
 {% extends "base.html" %}
-
 {% load static %}
-
-{% block title %}Cadastro de colaborador{% endblock %}
-
+{% block title %}
+  Cadastro de colaborador
+{% endblock title %}
 {% block style %}
-<style>
+  <style>
   .msg-content {
     padding: 1rem;
   }
@@ -65,31 +64,28 @@
     color: teal;
     font-size: 16px;
   }
-</style>
-
+  </style>
 {% endblock style %}
-
 {% block content %}
-
-<div class="msg-container">
-  <div class="msg-content">
-    <h1 class="msg-title">Acesso Negado</h1>
-    {% for message in messages %}
-    <div class="alert {{ message.tags }} alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      {{ message }}
-    </div>
-    {% endfor %}
-    <div class="msg-text">
-      <p>Se você precisar de ajuda contate-nos pelo telefone 4009-1521.</p>
-    </div>
-    <div>
-      <div class="msg-link">
-        <a href="{% url 'core:home' %}">Página inicial</a>
+  <div class="msg-container">
+    <div class="msg-content">
+      <h1 class="msg-title">Acesso Negado</h1>
+      {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+          {{ message }}
+        </div>
+      {% endfor %}
+      <div class="msg-text">
+        <p>Se você precisar de ajuda contate-nos pelo telefone 4009-1521.</p>
+      </div>
+      <div>
+        <div class="msg-link">
+          <a href="{% url 'core:home' %}">Página inicial</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
-{% endblock %}
+{% endblock content %}
