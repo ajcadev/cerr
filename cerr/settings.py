@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "cerr.core",
     "cerr.noticias",
     "cerr.rh",
+    "cerr.intranet",
 ]
 
 MIDDLEWARE = [

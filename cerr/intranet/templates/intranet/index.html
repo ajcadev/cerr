@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+  <style>
+    .wrapper {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 10px 0;
+    }
+
+    .card {
+      border-radius: 0.25rem;
+      box-shadow: 2px 2px 4px 0px rgba(50, 50, 50, 0.22);
+      padding: 5px;
+      margin: 5px;
+      width: 250px;
+      transition: all 0.3s ease-out;
+      border-left: 3px solid #4895ff;
+      flex-grow: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      cursor: pointer;
+    }
+
+    .card p {
+      color: #a3a5ae;
+      font-size: 16px;
+    }
+
+    .image {
+      /* float: center; */
+      max-width: 32px;
+      max-height: 32px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 14px;
+      margin-top: 10px;
+      
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+{% endblock style %}
+{% block title %}
+  Intranet
+{% endblock title %}
+{% block content %}
+  <div class="wrapper">
+    <div class="card">
+      <a href="#">
+        <h1>Ressarcimento</h1>
+        <img class="image" src="{% static 'img/payment-method.png' %}" alt="" />
+      </a>
+    </div>
+    <div class="card">
+      <a href="{% url 'intranet:dependente_list' %}">
+        <h1>Dependentes</h1>
+        <img class="image" src="{% static 'img/family.png' %}" alt="" />
+      </a>
+    </div>
+    <div class="card">
+      <a href="#">
+        <h1>Aniversariantes</h1>
+        <img class="image" src="{% static 'img/birthday-cake.png' %}" alt="" />
+      </a>
+    </div>
+    <div class="card">
+      <a href="#">
+        <h1>Cédula C</h1>
+        <img class="image" src="{% static 'img/lion.png' %}" alt="" />
+      </a>
+    </div>
+    <div class="card">
+      <a href="{% static '/arquivos/act_20_21.pdf' %}" target="_blank">
+        <h1>ACT</h1>
+        <img class="image" src="{% static 'img/docs.png' %}" alt="" />
+      </a>
+    </div>
+    <div class="card">
+      <a href="{% static '/arquivos/requerimento.pdf' %}" target="_blank">
+        <h1>Requerimento</h1>
+        <img class="image" src="{% static 'img/docs.png' %}" alt="" />
+      </a>
+    </div>
+    <div class="card">
+      <a href="{% url 'password_change' %}">
+        <h1>Segurança</h1>
+        <img class="image" src="{% static 'img/gear.png' %}" alt="" />
+      </a>
+    </div>
+    <div class="card">
+      <a href="#" target="_blank">
+        <h1>CC até 03/2019</h1>
+        <img class="image" src="{% static 'img/money-bag.png' %}" alt="" />
+      </a>
+    </div>
+    <div class="card">
+      <a href="//diretriz.net/pagamento/sec_Login/" target="_blank">
+        <h1>CC de 04/2019 a 03/2020</h1>
+        <img class="image" src="{% static 'img/money-bag.png' %}" alt="" />
+      </a>
+    </div>
+    <div class="card">
+      <a href="//servidor.rr.gov.br/" target="_blank">
+        <h1>CC desde 04/2020</h1>
+        <img class="image" src="{% static 'img/money-bag.png' %}" alt="" />
+      </a>
+    </div>
+  </div>
+{% endblock content %}

@@ -13,8 +13,13 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView, ListView
 from django.views.generic.edit import UpdateView
 
-from .forms import CadastroForm, ColaboradorUpdateEmailMatriculaForm
-from .models import Cadastro
+from .forms import (
+    CadastroForm,
+    ColaboradorUpdateEmailMatriculaForm,
+    DependenteForm,
+    DependenteUpdateForm,
+)
+from .models import Cadastro, Dependente
 
 
 @login_required
@@ -45,6 +50,9 @@ class ColaboradorListView(ListView):
             extra_tags="alert-danger",
         )
         return render(request, "rh/access_denied.html", {})
+
+    def get_queryset(self):
+        return Cadastro.objects.all().order_by("nome")
 
 
 class ColaboradorCreateView(CreateView):
@@ -103,8 +111,8 @@ class ColaboradorCreateView(CreateView):
             context = {"nome": nome, "cpf": cpf, "password": password}
             body = render_to_string("rh/colaborador_email.txt", context)
             from_email = "Portal da CERR <" + settings.EMAIL_HOST_USER + ">"
-            # to_email = email
-            to_email = "cardoso.rr@hotmail.com"
+            to_email = email
+            # to_email = "cardoso.rr@hotmail.com"
             send_mail(
                 subject,
                 body,
@@ -129,7 +137,9 @@ class ColaboradorUpdateEmailMatriculaView(UpdateView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_rh:
-            return super(ColaboradorUpdateEmailMatriculaView, self).get(request, *args, **kwargs)
+            return super(ColaboradorUpdateEmailMatriculaView, self).get(
+                request, *args, **kwargs
+            )
         messages.error(
             request,
             "Você não tem permissão para acessar esta página.",
@@ -139,13 +149,14 @@ class ColaboradorUpdateEmailMatriculaView(UpdateView):
 
     def form_valid(self, form):
         # update the table accounts_customuser.
-        cpf = self.kwargs['pk']
+        cpf = self.kwargs["pk"]
         User = get_user_model()
         user = User.objects.get(cpf=cpf)
-        user.email = form.cleaned_data.get("email")
+        email = form.cleaned_data.get("email")
+        user.email = email
         user.matricula = form.cleaned_data.get("matricula")
         nome = user.nome
-        password = 'cerr2021'
+        password = "cerr2021"
         try:
             user.save()
         except IntegrityError:
@@ -160,8 +171,8 @@ class ColaboradorUpdateEmailMatriculaView(UpdateView):
         context = {"nome": nome, "cpf": cpf, "password": password}
         body = render_to_string("rh/colaborador_email.txt", context)
         from_email = "Portal da CERR <" + settings.EMAIL_HOST_USER + ">"
-        # to_email = email
-        to_email = "cardoso.rr@hotmail.com"
+        to_email = email
+        # to_email = "cardoso.rr@hotmail.com"
         send_mail(
             subject,
             body,
@@ -174,3 +185,54 @@ class ColaboradorUpdateEmailMatriculaView(UpdateView):
             extra_tags="alert-success",
         )
         return super(ColaboradorUpdateEmailMatriculaView, self).form_valid(form)
+
+
+class DependenteListView(ListView):
+    model = Dependente
+    context_object_name = "dependentes"
+    template_name = "rh/dependente_list.html"
+    paginate_by = 5
+    ordering = ["nome"]
+
+    def get_queryset(self):
+        return Dependente.objects.filter(user_id=self.request.user)
+
+
+class DependenteCreateView(CreateView):
+    model = Dependente
+    form_class = DependenteForm
+    template_name = "rh/dependente_form.html"
+    success_url = reverse_lazy("intranet:dependente_list")
+
+    def get(self, request, *args, **kwargs):
+        return super(DependenteCreateView, self).get(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        cpf = form.cleaned_data.get("cpf")
+        data = datetime.strftime(form.cleaned_data.get("dt_nasc"), "%d/%m/%Y")
+        url = "https://ws.hubdodesenvolvedor.com.br/v2/cpf/?cpf={0}&data={1}&token={2}".format(
+            cpf, data, settings.TOKEN_RECEITA
+        )
+        response = requests.get(url)
+        json = response.json()
+        if json["status"] and (data == json["result"]["data_nascimento"]):
+            nome = json["result"]["nome_da_pf"]
+            new_dependente = form.save(commit=False)
+            new_dependente.user = self.request.user
+            new_dependente.nome = nome
+            new_dependente.save()
+        else:
+            messages.error(
+                self.request,
+                "Desculpe, dados não conferem...",
+                extra_tags="alert-danger",
+            )
+            return super().form_invalid(form)
+        return super(DependenteCreateView, self).form_valid(form)
+
+
+class DependenteUpdateView(UpdateView):
+    model = Dependente
+    form_class = DependenteUpdateForm
+    template_name = "rh/dependente_form.html"
+    success_url = reverse_lazy("intranet:dependente_list")

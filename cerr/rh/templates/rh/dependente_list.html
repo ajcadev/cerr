@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  Dependentes Cadastrados
+{% endblock title %}
+{% block content %}
+  <a class="btn btn-outline-primary mt-3"
+     href="{% url 'intranet:dependente_add' %}"
+     role="button">Novo</a>
+  {% if dependentes %}
+    <table class="table table-striped sortable">
+      <caption class="table-caption-top font-weight-bold">Dependentes Cadastrados</caption>
+      <thead>
+        <tr class="table-info">
+          <th>CPF</th>
+          <th>Nome</th>
+          <th>Data</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for dependente in dependentes %}
+          <tr>
+            <td>{{ dependente.cpf }}</td>
+            <td>{{ dependente.nome }}</td>
+            <td>{{ dependente.dt_nasc|date:'SHORT_DATE_FORMAT' }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% include "../paginator.html" %}
+  {% else %}
+    <p class="alert alert-info mt-3">Nenhum dependente cadastrado!</p>
+  {% endif %}
+{% endblock content %}

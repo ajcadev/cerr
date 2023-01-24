@@ -1,3 +1,12 @@
+*.log
+*.pot
+*.pyc
+__pycache__/
+*.py[cod]
 .env
 .vscode
 .DS_Store
+**/migrations
+*.DS_Store
+**/__pycache__
+**/.DS_Store

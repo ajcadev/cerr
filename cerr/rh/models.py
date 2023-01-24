@@ -32,7 +32,9 @@ class Cadastro(models.Model):
 class Dependente(models.Model):
     cpf = models.CharField("cpf do dependente", max_length=11, primary_key=True)
     nome = models.CharField(max_length=100)
-    dt_nasc = models.DateField("data de nascimento do dependente")
+    dt_nasc = models.DateField(
+        "data de nascimento", help_text="Use o formato: <em>DD/MM/AAAA</em>."
+    )
     criado_em = models.DateTimeField("criado em:", auto_now_add=True)
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL,
