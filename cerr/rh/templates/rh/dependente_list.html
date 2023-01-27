@@ -20,7 +20,9 @@
       <tbody>
         {% for dependente in dependentes %}
           <tr>
-            <td>{{ dependente.cpf }}</td>
+            <td>
+              <a href="{{ dependente.get_absolute_url }}">{{ dependente.cpf }}</a>
+            </td>
             <td>{{ dependente.nome }}</td>
             <td>{{ dependente.dt_nasc|date:'SHORT_DATE_FORMAT' }}</td>
           </tr>

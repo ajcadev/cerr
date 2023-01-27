@@ -70,7 +70,14 @@ class DependenteForm(forms.ModelForm):
 class DependenteUpdateForm(forms.ModelForm):
     class Meta:
         model = Dependente
-        fields = ("cpf", "dt_nasc")
+        fields = (
+            "sexo",
+            "incide_IR",
+            "universitario",
+            "parentesco",
+            "deficiente",
+            "salario_familia",
+        )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -79,8 +86,18 @@ class DependenteUpdateForm(forms.ModelForm):
         self.helper.add_input(Submit("submit", "Salvar"))
         self.helper.layout = Layout(
             Row(
-                Column("cpf", css_class="form-group col-md-6 mb-0"),
-                Column("dt_nasc", css_class="form-group col-md-6 mb-0"),
+                Column("sexo", css_class="form-group col-md-6 mb-0"),
+                Column("incide_IR", css_class="form-group col-md-6 mb-0"),
+                css_class="form-row",
+            ),
+            Row(
+                Column("universitario", css_class="form-group col-md-6 mb-0"),
+                Column("parentesco", css_class="form-group col-md-6 mb-0"),
+                css_class="form-row",
+            ),
+            Row(
+                Column("deficiente", css_class="form-group col-md-6 mb-0"),
+                Column("salario_familia", css_class="form-group col-md-6 mb-0"),
                 css_class="form-row",
             ),
         )
